@@ -1,0 +1,77 @@
+
+.JSONPreviewer {
+
+    position: relative;
+    z-index: 2000;
+
+    border-radius:15px;
+    border:2px solid gainsboro;
+    padding:3px;
+    width:auto;
+    display: inline-block;
+    padding-left:0px;
+    padding-right:0px;
+    transition: all 1s ease;
+    cursor: pointer;
+    font-size: 13px;
+
+
+}
+
+.JSONPreviewer .large-font {
+    font-size: 16px;
+}
+
+.JSONPreviewer.open {
+    /*min-width:800px;*/
+}
+
+.JSONPreviewer.expand {
+    color:gray;
+    font-weight: bold;
+}
+
+.JSONPreviewer pre {
+    font-family: inherit;
+}
+
+.JSONPreviewer .section {
+    background-color: white;
+    padding:4px;
+}
+
+.JSONPreviewer .section.alt {
+    background-color: #efefef;
+}
+
+.JSONPreviewer .label-wrap {
+
+    display: flex;
+    flex-direction: row;
+    padding:3px;
+    justify-content: left;
+    align-items: center;
+}
+.JSONPreviewer .arrow {
+    color:gray;
+    margin-left:4px;
+    margin-right:4px;
+}
+
+.JSONPreviewer .object-key {
+    font-weight: 900;
+    font-style: italic;
+}
+
+.JSONPreviewer .object-key.source {
+    text-transform: capitalize;
+    margin-left:5px;
+    color:gray;
+}
+
+.JSONPreviewer .toggle-wrap {
+    border:2px solid gainsboro;
+    margin-left:20px;
+    margin:5px;
+    border-radius: 4px;
+}
