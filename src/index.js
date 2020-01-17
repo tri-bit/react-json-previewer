@@ -1,5 +1,5 @@
 import React from 'react';
-import { JSONPreviewer } from './JSONPreviewer';
+import { JSONPreviewer } from './components/JSONPreviewer/JSONPreviewer';
 
 import './css/JSONPreviewer.css'
 
