@@ -1,5 +1,4 @@
 .babelrc
-/src
 /docs
 /node_modules
 /webpack
