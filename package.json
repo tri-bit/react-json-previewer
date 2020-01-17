@@ -1,14 +1,14 @@
 {
   "name": "@tri-bit/react-json-previewer",
-  "version": "1.0.1",
+  "version": "1.0.12",
   "description": "Simple, compact JSON preview of object in React.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type":"git",
-    "url":"https://github.com/tri-bit/react-json-previewer.git"
+    "type": "git",
+    "url": "https://github.com/tri-bit/react-json-previewer.git"
   },
   "keywords": [
     "React",
