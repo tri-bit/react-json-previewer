@@ -2,7 +2,7 @@
   "name": "@tri-bit/react-json-previewer",
   "version": "1.0.19",
   "description": "Simple, compact JSON preview of object in React.",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development",

@@ -14,6 +14,7 @@ module.exports = {
     },
 
     entry: './examples/src/index.js',
+    //entry: './src',
 
     module: {
         rules: [
