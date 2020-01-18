@@ -2,9 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     chunks: ['example'],
+    //inject:'body',
     template: path.join(__dirname, 'examples/src/index.html'),
     filename:'./index.html'
 });
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
 
@@ -15,10 +17,13 @@ module.exports = {
     },
 
     //entry: './examples/src/index.js',
+
+
     entry: {
         main: './src/index.js',
         example: './examples/src/index.js'
     },
+
 
     module: {
         rules: [
@@ -41,8 +46,9 @@ module.exports = {
         extensions: [".js", ".jsx"]
     },
 
-    plugins: [htmlWebpackPlugin],
+    plugins: [new CleanWebpackPlugin(), htmlWebpackPlugin],
 
+    /*
     externals: {
         // Don't bundle react or react-dom
         react: {
@@ -58,6 +64,7 @@ module.exports = {
             root: "ReactDOM"
         }
     }
+    */
 
 
 };
