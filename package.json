@@ -3,21 +3,28 @@
   "version": "1.0.20",
   "description": "Simple, compact JSON preview of object in React.",
   "main": "dist/main.js",
+
+
+
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development",
-    "transpile": "babel src -d dist --copy-files"
+    "transpile": "babel src -d dist --copy-files",
+    "prepublish": "rm -rf ./dist && npm run build"
   },
+
   "repository": {
     "type": "git",
     "url": "https://github.com/tri-bit/react-json-previewer.git"
   },
+
   "keywords": [
     "React",
     "JSON",
     "Debug",
     "Tools"
   ],
+
   "author": "Jim Welch",
   "license": "MIT",
   "devDependencies": {
@@ -34,7 +41,8 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
-  "dependencies": {
+
+  "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
