@@ -24,6 +24,10 @@ module.exports = {
         example: './examples/src/index.js'
     },
 
+    output: {
+        libraryTarget: "umd",
+        library: "react-json-previewer"
+    },
 
     module: {
         rules: [
