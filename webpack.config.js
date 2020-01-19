@@ -25,8 +25,10 @@ module.exports = {
     },
 
     output: {
+
+        library: "react-json-previewer",
         libraryTarget: "umd",
-        library: "react-json-previewer"
+
     },
 
     module: {
@@ -52,7 +54,7 @@ module.exports = {
 
     plugins: [new CleanWebpackPlugin(), htmlWebpackPlugin],
 
-    /*
+
     externals: {
         // Don't bundle react or react-dom
         react: {
@@ -68,7 +70,7 @@ module.exports = {
             root: "ReactDOM"
         }
     }
-    */
+
 
 
 };
