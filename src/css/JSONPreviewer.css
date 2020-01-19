@@ -19,7 +19,7 @@
     text-align:left;
     overflow: hidden;
     color:black;
-
+    margin: 5px;
 }
 
 .JSONPreviewer .large-font {
