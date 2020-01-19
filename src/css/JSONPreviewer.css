@@ -3,7 +3,7 @@
 
     position: relative;
     z-index: 2000;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: ;
     border-radius:15px;
     border:2px solid gainsboro;
     padding:3px;
@@ -14,7 +14,11 @@
     transition: all 1s ease;
     cursor: pointer;
     font-size: 13px;
-    margin-bottom:4px;
+
+    background-color: white;
+    text-align:left;
+    overflow: hidden;
+
 
 }
 
