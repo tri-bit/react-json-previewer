@@ -9,6 +9,7 @@ const JSONPreviewer = (props)=>  {
     const displayType = props.displayType || true;
     const previewTitle =  props.previewTitle || 'JSONPreviewer';
     //const previewType = props.basicPreview ? 'basic' : 'detailed';
+    const previewType = 'detailed';
 
 
     useEffect(()=>{
