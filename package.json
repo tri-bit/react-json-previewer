@@ -1,6 +1,6 @@
 {
   "name": "@tri-bit/react-json-previewer",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "Simple, compact JSON preview of object in React.",
   "main": "dist/main.js",
   "scripts": {
