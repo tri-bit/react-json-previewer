@@ -14,12 +14,14 @@
     transition: all 1s ease;
     cursor: pointer;
     font-size: 13px;
+    word-break: break-all;
 
     background-color: white;
     text-align:left;
     overflow: hidden;
     color:black;
     margin: 5px;
+
 }
 
 .JSONPreviewer .large-font {
@@ -78,4 +80,8 @@
     margin-left:20px;
     margin:5px;
     border-radius: 4px;
+}
+
+.JSONPreviewer .dataSuffix {
+    color: gray;
 }

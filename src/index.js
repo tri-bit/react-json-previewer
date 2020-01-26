@@ -10,6 +10,7 @@ const JSONPreviewer = (props)=>  {
     const previewTitle =  props.previewTitle || 'JSONPreviewer';
     //const previewType = props.basicPreview ? 'basic' : 'detailed';
     const previewType = 'detailed';
+    const stringDisplayLimit = props.stringDisplayLimit || 1024;
 
 
     useEffect(()=>{
@@ -70,7 +71,16 @@ const JSONPreviewer = (props)=>  {
 
             else {
 
-                const str = JSON.stringify(targetObject[key], null);
+                let str = JSON.stringify(targetObject[key], null).replace(key, '');
+                const type = getType(targetObject[key]);
+                let dataSuffix = null;
+
+                if(type === 'string' && stringDisplayLimit !== -1 && str.length > stringDisplayLimit) {
+                    const strLength = str.length;
+                    str = `${str.substring(0, stringDisplayLimit)}...`;
+                    dataSuffix = ( <span className="dataSuffix">[{strLength} characters]</span> );
+                }
+
                 let label = key;
                 if(displayType) {
                     label = `${label } (${ typeLabel(targetObject[key]) })`;
@@ -80,7 +90,7 @@ const JSONPreviewer = (props)=>  {
 
                     return(
                         <div className={sectionClass } key={index}>
-                        <div><span className="object-key"> {label} :</span> {JSON.stringify(targetObject[key], null).replace(key, '')}</div>
+                        <div><span className="object-key"> {label} :</span> <span className="data">{str}</span> {dataSuffix}</div>
                         </div>
                     )
                 } else {
