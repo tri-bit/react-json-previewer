@@ -53,9 +53,32 @@ const JSONPreviewer = (props)=>  {
 
         const render = keys.map((key, index)=>  {
 
+            const sectionClass = index % 2 ? 'section' : 'section alt'
+
+            //todo: combine with with the standard key labeling below
+            if(!targetObject[key] || targetObject[key] === 'undefined') {
+
+                let label = key;
+                let str = '(undefined)';
+                if(targetObject[key] === null) {
+                    str = '(null)';
+                }
+
+                return(
+
+                    <div className={ sectionClass } key={index}>
+                    <div><span className="object-key"> {label} :</span> <span className="data">{str}</span></div>
+                    </div>
+
+                )
+
+
+            }
+
+
             if(typeof targetObject[key] === 'function') { return; }
 
-            const sectionClass = index % 2 ? 'section' : 'section alt'
+
             const shouldNest = shouldNestObject(targetObject[key]);
 
             if(shouldNest) {

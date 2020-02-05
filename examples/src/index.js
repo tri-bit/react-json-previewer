@@ -12,7 +12,8 @@ function App () {
     aString: 'A Bunch of Words',
     aNumber: 54345934543354534354,
     longString: longString,
-    nestedObject:{text:'hello', moreText:'goodbye', testFunction:()=> { console.log('function log')}}
+    nestedObject:{text:'hello', moreText:'goodbye', testFunction:()=> { console.log('function log')}},
+    nullObject:null
     }
 
 
