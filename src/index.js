@@ -6,11 +6,13 @@ const JSONPreviewer = (props)=>  {
 
     const [expanded, setExpanded] = useState(props.expanded || false);
 
+    const validSourceObj = (props.sourceObject && props.sourceObject !== undefined);
     const displayType = props.displayType || true;
     const previewTitle =  props.previewTitle || 'JSONPreviewer';
     //const previewType = props.basicPreview ? 'basic' : 'detailed';
     const previewType = 'detailed';
     const stringDisplayLimit = props.stringDisplayLimit || 1024;
+
 
 
     useEffect(()=>{
@@ -134,6 +136,9 @@ const JSONPreviewer = (props)=>  {
 
     const typeLabel = (sourceObj)=>  {
 
+        if(sourceObj === undefined) return '(undefined)';
+        if(sourceObj === null) return '(null)';
+
         const type = getType(sourceObj);
         let label = type;
 
@@ -147,12 +152,20 @@ const JSONPreviewer = (props)=>  {
 
     return(
         <div onClick={()=> { setExpanded(!expanded)}}>
-        {!expanded && (
+
+        {!validSourceObj && (
+
+            <div className="JSONPreviewer">
+            <div className="label-wrap">🔍 { `${getPreviewTitle()} `} <span className="object-key source"> {typeLabel(props.sourceObject)}</span></div>
+            </div>
+        )}
+
+        {validSourceObj && !expanded && (
             <div className="JSONPreviewer">
             <div className="label-wrap">🔍 { `${getPreviewTitle()} `} <span className="object-key source"> {typeLabel(props.sourceObject)}</span><div className="arrow">▼</div> </div>
             </div>
         )}
-        {expanded && (
+        {validSourceObj && expanded && (
             <div className="JSONPreviewer open">
                 <div className="label-wrap">🔍 { `${getPreviewTitle()}`} <span className="object-key source"> {typeLabel(props.sourceObject)}</span><div className="arrow">▲</div></div>
                 {props.sourceObject && (

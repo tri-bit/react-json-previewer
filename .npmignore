@@ -8,3 +8,4 @@ webpack.config.js
 /docs
 /node_modules
 /webpack
+devnotes.txt
