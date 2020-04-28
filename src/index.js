@@ -9,11 +9,9 @@ const JSONPreviewer = (props)=>  {
     const validSourceObj = (props.sourceObject && props.sourceObject !== undefined);
     const displayType = props.displayType || true;
     const previewTitle =  props.previewTitle || 'JSONPreviewer';
-    //const previewType = props.basicPreview ? 'basic' : 'detailed';
-    const previewType = 'detailed';
     const stringDisplayLimit = props.stringDisplayLimit || 1024;
 
-
+    const flattenArrays = props.flattenArrays || false; //default true
 
     useEffect(()=>{
 
@@ -23,11 +21,7 @@ const JSONPreviewer = (props)=>  {
 
     const preview = sourceObj => {
 
-        if(previewType === 'basic') {
-            return getPreviewBasic(sourceObj)
-        } else {
-            return getPreviewDetailed(0, sourceObj);
-        }
+        return getPreviewDetailed(0, sourceObj);
 
     }
 
@@ -142,7 +136,13 @@ const JSONPreviewer = (props)=>  {
         let shouldNest = false;
 
         //todo: more detailed nest logic
-        return typeof targetObject === 'object' && !Array.isArray(targetObject);
+
+        //if(Array.isArray(targetObject) && !flattenArrays) return false;
+
+        //if (typeof targetObject === 'object' && !Array.isArray(targetObject)) return true;
+
+        //return typeof targetObject === 'object' && !Array.isArray(targetObject);
+        return typeof targetObject === 'object' && (!Array.isArray(targetObject) || (Array.isArray(targetObject) && !flattenArrays))
 
 
     }
