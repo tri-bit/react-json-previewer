@@ -32,5 +32,6 @@ const sourceObject = {example:'object'};
 | `previewTitle`                    | The always displayed title of the preview component, `"JSONPreviewer"` is the default value                          |
 | `expanded`                        | Default value is `false` - If true the preview will remain opened                                                    |
 | `stringDisplayLimit`              | Default value is `1024` - Shortens the display of long strings. Set to `-1` to remove the limit                      |
+| `flattenArrays`              | Default value is `true` - Arrays are flatten into a string for a more compact view, set `false` to disable                    |
 
 

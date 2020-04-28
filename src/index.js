@@ -11,7 +11,7 @@ const JSONPreviewer = (props)=>  {
     const previewTitle =  props.previewTitle || 'JSONPreviewer';
     const stringDisplayLimit = props.stringDisplayLimit || 1024;
 
-    const flattenArrays = props.flattenArrays || false; //default true
+    const flattenArrays = props.flattenArrays || true; //default true
 
     useEffect(()=>{
 
