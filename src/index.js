@@ -133,16 +133,16 @@ const JSONPreviewer = (props)=>  {
 
     const shouldNestObject = (targetObject)=>   {
 
-        let shouldNest = false;
+        if(Array.isArray(targetObject)) {
 
-        //todo: more detailed nest logic
+            if(flattenArrays) { return true; }
+            else { return false; }
 
-        //if(Array.isArray(targetObject) && !flattenArrays) return false;
+        }
 
-        //if (typeof targetObject === 'object' && !Array.isArray(targetObject)) return true;
+        if(typeof targetObject === 'object') { return true; }
 
-        //return typeof targetObject === 'object' && !Array.isArray(targetObject);
-        return typeof targetObject === 'object' && (!Array.isArray(targetObject) || (Array.isArray(targetObject) && !flattenArrays))
+        return false;
 
 
     }
