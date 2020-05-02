@@ -11,7 +11,9 @@ const JSONPreviewer = (props)=>  {
     const previewTitle =  props.previewTitle || 'JSONPreviewer';
     const stringDisplayLimit = props.stringDisplayLimit || 1024;
 
-    const flattenArrays = props.flattenArrays || true; //default true
+    const flattenArrays = props.flattenArrays !== undefined ? props.flattenArrays : true; //default true
+
+    console.log('props check', props);
 
     useEffect(()=>{
 
@@ -135,8 +137,14 @@ const JSONPreviewer = (props)=>  {
 
         if(Array.isArray(targetObject)) {
 
-            if(flattenArrays) { return true; }
-            else { return false; }
+            //console.log('flattenArrays', { flattenArrays, propsVersion:props.flattenArrays});
+
+            if(flattenArrays === false) {
+                return true;
+            }
+            else {
+                return false;
+            }
 
         }
 
