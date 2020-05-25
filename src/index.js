@@ -97,7 +97,10 @@ const JSONPreviewer = (props)=>  {
 
             else {
 
-                let str = JSON.stringify(targetObject[key], null).replace(key, '');
+                let str = JSON.stringify(targetObject[key], null);
+                if(str !== key) {
+                    str = str.replace(key, '')
+                }
                 const type = getType(targetObject[key]);
                 let dataSuffix = null;
 
@@ -122,7 +125,8 @@ const JSONPreviewer = (props)=>  {
                         </div>
                     )
                 } else {
-                    return <div>{key}undefined error</div>
+                    //console.log(`type of error: ${typeof targetObject[key]} ${str.length}`)
+                    return <div key={index}>{label}: undefined error</div>
                 }
 
             }
