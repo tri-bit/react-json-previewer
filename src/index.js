@@ -46,6 +46,8 @@ const JSONPreviewer = (props)=>  {
         //const { sourceObject } = props;
 
         const keys = Object.keys(targetObject);
+        const targetObjectType = getType(targetObject);
+        const isArray = targetObjectType === 'array';
 
         const render = keys.map((key, index)=>  {
 
@@ -78,12 +80,15 @@ const JSONPreviewer = (props)=>  {
             const shouldNest = shouldNestObject(targetObject[key]);
 
             if(shouldNest) {
+
+                const keyLabel = isArray ? `[${key}]` : key;
+
                 return (
 
 
 
                     <div className="toggle-wrap" key={index} >
-                    <div className="label-wrap">{key} <span className="object-key source">{`(${typeLabel(targetObject[key])})`}:</span></div>
+                    <div className="label-wrap"> {keyLabel} <span className="object-key source">{`(${typeLabel(targetObject[key])})`}:</span></div>
                     { getPreviewDetailed(indent+1, targetObject[key])}
                     </div>
 
