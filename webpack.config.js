@@ -1,11 +1,20 @@
 const path = require('path');
+
+/*
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     chunks: ['example'],
     //inject:'body',
     template: path.join(__dirname, 'examples/src/index.html'),
     filename:'./index.html'
 });
+
+
+const htmlWebpackPlugin = new HtmlWebpackPlugin();
+*/
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -16,12 +25,11 @@ module.exports = {
         historyApiFallback: true
     },
 
-    //entry: './examples/src/index.js',
 
 
     entry: {
         main: './src/index.js',
-        example: './examples/src/index.js'
+        //example: './examples/src/index.js'
     },
 
     output: {
@@ -52,8 +60,8 @@ module.exports = {
         extensions: [".js", ".jsx"]
     },
 
-    plugins: [new CleanWebpackPlugin(), htmlWebpackPlugin],
-
+    //plugins: [new CleanWebpackPlugin(), htmlWebpackPlugin],
+    plugins: [new CleanWebpackPlugin()],
 
     externals: {
         // Don't bundle react or react-dom
