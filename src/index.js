@@ -107,7 +107,9 @@ const JSONPreviewer = (props)=>  {
                     dataSuffix = ( <span className="dataSuffix">[{strLength} characters]</span> );
                 }
 
-                let label = key;
+                let label = isArray ? `[${key}]` : key;
+
+
                 if(displayType) {
                     label = `${label } (${ typeLabel(targetObject[key]) })`;
                 }
