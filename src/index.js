@@ -8,12 +8,11 @@ const JSONPreviewer = (props)=>  {
 
     const validSourceObj = (props.sourceObject && props.sourceObject !== undefined);
     const displayType = props.displayType || true;
-    const previewTitle =  props.previewTitle || 'JSONPreviewer';
     const stringDisplayLimit = props.stringDisplayLimit || 1024;
 
     const flattenArrays = props.flattenArrays !== undefined ? props.flattenArrays : true; //default true
 
-    console.log('props check', props);
+    const searchIcon = <><span aria-label="search icon" role="img">🔍</span></>;
 
     useEffect(()=>{
 
@@ -74,7 +73,7 @@ const JSONPreviewer = (props)=>  {
             }
 
 
-            if(typeof targetObject[key] === 'function') { return; }
+            if(typeof targetObject[key] === 'function') { return null; }
 
 
             const shouldNest = shouldNestObject(targetObject[key]);
@@ -198,18 +197,18 @@ const JSONPreviewer = (props)=>  {
         {!validSourceObj && (
 
             <div className="JSONPreviewer">
-            <div className="label-wrap">🔍 { `${getPreviewTitle()} `} <span className="object-key source"> {typeLabel(props.sourceObject)}</span></div>
+            <div className="label-wrap">{searchIcon} { `${getPreviewTitle()} `} <span className="object-key source"> {typeLabel(props.sourceObject)}</span></div>
             </div>
         )}
 
         {validSourceObj && !expanded && (
             <div className="JSONPreviewer">
-            <div className="label-wrap">🔍 { `${getPreviewTitle()} `} <span className="object-key source"> {typeLabel(props.sourceObject)}</span><div className="arrow">▼</div> </div>
+            <div className="label-wrap">{searchIcon} { `${getPreviewTitle()} `} <span className="object-key source"> {typeLabel(props.sourceObject)}</span><div className="arrow">▼</div> </div>
             </div>
         )}
         {validSourceObj && expanded && (
             <div className="JSONPreviewer open">
-                <div className="label-wrap">🔍 { `${getPreviewTitle()}`} <span className="object-key source"> {typeLabel(props.sourceObject)}</span><div className="arrow">▲</div></div>
+                <div className="label-wrap">{searchIcon} { `${getPreviewTitle()}`} <span className="object-key source"> {typeLabel(props.sourceObject)}</span><div className="arrow">▲</div></div>
                 {props.sourceObject && (
                     <>
                     { preview(props.sourceObject) }
