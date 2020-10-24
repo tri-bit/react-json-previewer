@@ -16,6 +16,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin();
 */
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 
@@ -61,7 +62,10 @@ module.exports = {
     },
 
     //plugins: [new CleanWebpackPlugin(), htmlWebpackPlugin],
-    plugins: [new CleanWebpackPlugin()],
+    plugins: [
+        new CleanWebpackPlugin(),
+        new BundleAnalyzerPlugin()
+    ],
 
     externals: {
         // Don't bundle react or react-dom
