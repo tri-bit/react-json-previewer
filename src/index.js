@@ -7,8 +7,9 @@ const JSONPreviewer = (props)=>  {
     const [expanded, setExpanded] = useState(props.expanded || false);
 
     const validSourceObj = (props.sourceObject && props.sourceObject !== undefined);
-    const displayType = props.displayType || true;
+    const displayType = props.displayType === false ? false : true;
     const stringDisplayLimit = props.stringDisplayLimit || 1024;
+    const showTypes = props.showTypes || true;
 
     const flattenArrays = props.flattenArrays !== undefined ? props.flattenArrays : true; //default true
 
@@ -28,8 +29,6 @@ const JSONPreviewer = (props)=>  {
 
     const getPreviewDetailed = (indent, targetObject)=> {
 
-        //const { sourceObject } = props;
-
         const keys = Object.keys(targetObject);
         const targetObjectType = getType(targetObject);
         const isArray = targetObjectType === 'array';
@@ -39,13 +38,12 @@ const JSONPreviewer = (props)=>  {
             const sectionClass = index % 2 ? 'section' : 'section alt'
 
             //todo: combine with with the standard key labeling below
-            if(!targetObject[key] || targetObject[key] === 'undefined') {
+
+            if((!targetObject[key] || targetObject[key] === 'undefined')
+                && targetObject[key] !== 0 && targetObject[key] !== false) {
 
                 let label = key;
-                let str = '(undefined)';
-                if(targetObject[key] === null) {
-                    str = '(null)';
-                }
+                let str = String(targetObject[key]);
 
                 return(
 
@@ -55,8 +53,8 @@ const JSONPreviewer = (props)=>  {
 
                 )
 
-
             }
+
 
 
             if(typeof targetObject[key] === 'function') { return null; }
@@ -152,10 +150,7 @@ const JSONPreviewer = (props)=>  {
     const getType = item =>   {
 
         if(Array.isArray(item)) return 'array';
-        if(typeof item === 'object') return 'object';
-        if(typeof item === 'string') return 'string';
-        if(typeof item === 'number') return 'number';
-        if(typeof item === 'boolean') return 'boolean';
+        return typeof item;
 
     }
 

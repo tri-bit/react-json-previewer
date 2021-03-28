@@ -67,6 +67,7 @@ module.exports = {
         new BundleAnalyzerPlugin()
     ],
 
+
     externals: {
         // Don't bundle react or react-dom
         react: {
@@ -82,9 +83,6 @@ module.exports = {
             root: "ReactDOM"
         }
     }
-
-
-
 
 
 
