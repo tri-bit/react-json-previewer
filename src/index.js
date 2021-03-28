@@ -26,20 +26,6 @@ const JSONPreviewer = (props)=>  {
 
     }
 
-    /*
-    const getPreviewBasic = (sourceObj)=>  {
-
-        return(
-            <div style={{padding:10}}>
-                <pre>
-                {JSON.stringify(sourceObj, null, 2)}
-                </pre>
-            </div>
-        )
-
-    }
-    */
-
     const getPreviewDetailed = (indent, targetObject)=> {
 
         //const { sourceObject } = props;
@@ -146,8 +132,6 @@ const JSONPreviewer = (props)=>  {
     const shouldNestObject = (targetObject)=>   {
 
         if(Array.isArray(targetObject)) {
-
-            //console.log('flattenArrays', { flattenArrays, propsVersion:props.flattenArrays});
 
             if(flattenArrays === false) {
                 return true;
